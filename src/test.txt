@@ -1,0 +1,40 @@
+5/26/2019, 5:54:14 PMnode: 9b0d5ebc.49b448
+homebridge/from/get : msg.payload : string[90]
+
+"{"name":"418737","service_name":"Thermostat","characteristic":"TargetHeatingCoolingState"}"
+5/26/2019, 5:54:14 PMnode: 9b0d5ebc.49b448
+homebridge/from/get : msg.payload : string[83]
+
+"{"name":"418737","service_name":"Thermostat","characteristic":"CurrentTemperature"}"
+5/26/2019, 5:54:14 PMnode: 9b0d5ebc.49b448
+homebridge/from/get : msg.payload : string[88]
+
+"{"name":"418737","service_name":"Thermostat","characteristic":"TemperatureDisplayUnits"}"
+5/26/2019, 5:54:14 PMnode: 9b0d5ebc.49b448
+homebridge/from/get : msg.payload : string[82]
+
+"{"name":"418737","service_name":"Thermostat","characteristic":"TargetTemperature"}"
+5/26/2019, 5:54:14 PMnode: 9b0d5ebc.49b448
+homebridge/from/get : msg.payload : string[91]
+
+"{"name":"418737","service_name":"Thermostat","characteristic":"CurrentHeatingCoolingState"}"
+5/26/2019, 5:55:59 PMnode: 9b0d5ebc.49b448
+homebridge/from/get : msg.payload : string[90]
+
+"{"name":"418737","service_name":"Thermostat","characteristic":"TargetHeatingCoolingState"}"
+5/26/2019, 5:55:59 PMnode: 9b0d5ebc.49b448
+homebridge/from/get : msg.payload : string[83]
+
+"{"name":"418737","service_name":"Thermostat","characteristic":"CurrentTemperature"}"
+5/26/2019, 5:56:00 PMnode: 9b0d5ebc.49b448
+homebridge/from/get : msg.payload : string[88]
+
+"{"name":"418737","service_name":"Thermostat","characteristic":"TemperatureDisplayUnits"}"
+5/26/2019, 5:56:00 PMnode: 9b0d5ebc.49b448
+homebridge/from/get : msg.payload : string[82]
+
+"{"name":"418737","service_name":"Thermostat","characteristic":"TargetTemperature"}"
+5/26/2019, 5:56:00 PMnode: 9b0d5ebc.49b448
+homebridge/from/get : msg.payload : string[91]
+
+"{"name":"418737","service_name":"Thermostat","characteristic":"CurrentHeatingCoolingState"}"
