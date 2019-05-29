@@ -18,22 +18,29 @@ void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print("] ");
   DynamicJsonDocument doc(128);
   deserializeJson(doc, payload);
-  const char* name = doc["name"];
-  Serial.println(sensorName);
-  if (strcmp(sensorName, name) == 0) {
-    Serial.println(name);
+  if (strcmp(topic, "homebridge/from/response") == 0) {
+    bool ack = doc["ack"];
+    Serial.println(ack);
+    if (!ack) {
+      const char* message = doc["message"];
+      Serial.println(message);
+    }
+  } else if (strcmp(topic, "homebridge/from/get") == 0) {
+    DynamicJsonDocument doc(128);
+    deserializeJson(doc, payload);
+    const char* name = doc["name"];
+    if (strcmp(sensorName, name) == 0) {
+      Serial.println(name);
+    }
   }
 }
 
-void reconnect() {
+void connect() {
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
     if (client.connect("arduinoClient")) {
       Serial.println("connected");
-      // Once connected, publish an announcement...
-      // client.publish("outTopic","hello world");
-      // ... and resubscribe
-      client.subscribe("homebridge/from/get");
+      client.subscribe("homebridge/from/#");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -43,17 +50,27 @@ void reconnect() {
   }
 }
 
+void getAccessory() {
+  DynamicJsonDocument doc(128);
+  doc["name"] = sensorName;
+  char payload[128];
+  serializeJson(doc, payload);
+  client.publish("homebridge/to/get", payload);
+}
+
 void setup() {
   Serial.begin(9600);
   itoa(ESP.getChipId(), sensorName, 10);
   wifiManager.autoConnect();
   client.setServer(server, 1883);
   client.setCallback(callback);
+  connect();
+  getAccessory();
 }
 
 void loop() {
   if (!client.connected()) {
-    reconnect();
+    connect();
   }
   client.loop();
 }
